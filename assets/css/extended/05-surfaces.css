@@ -1,0 +1,16 @@
+/* Page-level surfaces: flatten PaperMod's tinted panels onto the page colour. */
+
+/*
+ * PaperMod scopes its dark rules as `[data-theme="dark"] .list`, which
+ * outranks a bare `.list`. Matching that specificity is what makes these
+ * overrides actually land in dark mode — a plain selector silently loses.
+ */
+.list,
+:root[data-theme="dark"] .list {
+    background: var(--theme);
+}
+
+details.toc,
+:root[data-theme="dark"] details.toc {
+    background: var(--theme);
+}

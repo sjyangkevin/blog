@@ -1,0 +1,36 @@
+/*
+ * Prev/next navigation: at the foot of a post (.paginav) and at the foot of
+ * a list page (.pagination). Both become a rule with plain text beneath it.
+ */
+
+.paginav,
+.pagination {
+    background: transparent;
+    border: none;
+    border-top: var(--rule);
+    border-radius: 0;
+    margin-top: var(--gap);
+    padding-top: var(--gap);
+}
+
+.paginav a {
+    font-size: var(--fs-meta);
+}
+
+.paginav a:hover,
+.paginav span:hover:not(.title) {
+    background: transparent;
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.pagination a {
+    background: transparent;
+    color: var(--secondary);
+    padding: 0;
+    border-radius: 0;
+}
+
+.pagination a:hover {
+    color: var(--accent);
+}

@@ -1,0 +1,14 @@
+/* Header menu. */
+
+#menu a:hover {
+    color: var(--accent);
+}
+
+/*
+ * header.html marks external menu links with target="_blank". Hide the
+ * theme's "opens elsewhere" glyph — the link's title attribute still
+ * announces it, so screen readers keep the cue.
+ */
+#menu a[target="_blank"] > svg {
+    display: none;
+}

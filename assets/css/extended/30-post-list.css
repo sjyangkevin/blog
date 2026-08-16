@@ -1,0 +1,46 @@
+/*
+ * Post entries on the home, section and tag pages.
+ * The row surface itself lives in 15-flat-row.css.
+ */
+
+.post-entry,
+.first-entry {
+    display: block;
+}
+
+/* Show titles and summaries in full instead of clamping to 2–3 lines. */
+.post-entry .entry-header,
+.first-entry .entry-header,
+.post-entry .entry-content,
+.first-entry .entry-content {
+    display: block;
+    overflow: visible;
+    -webkit-line-clamp: unset;
+}
+
+/* One title size for every entry — PaperMod sizes the first one at 40px. */
+.post-entry .entry-header h2,
+.first-entry .entry-header h2 {
+    font-size: var(--fs-entry-title);
+}
+
+.post-entry .entry-content,
+.first-entry .entry-content {
+    margin: 8px 0;
+    font-size: var(--fs-body-sm);
+}
+
+.post-entry .entry-footer,
+.first-entry .entry-footer {
+    font-size: var(--fs-meta);
+}
+
+/*
+ * Hover cue for the row. It has to hang off the row rather than the heading:
+ * .entry-link is an absolutely positioned overlay covering the whole entry,
+ * so the h2 itself never receives :hover.
+ */
+.post-entry:hover .entry-header h2,
+.first-entry:hover .entry-header h2 {
+    color: var(--accent);
+}

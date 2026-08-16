@@ -1,0 +1,56 @@
+/*
+ * Flat row — the shared surface for every stacked list on the site:
+ * post entries (home, section, tag pages) and search results.
+ *
+ * PaperMod ships these as raised cards that lift on hover. This flattens
+ * them into hairline-separated rows. Both components are styled together on
+ * purpose: they look identical to a reader, so they must not drift apart.
+ */
+
+.post-entry,
+.first-entry,
+.searchResults li {
+    background: transparent;
+    border: none;
+    border-bottom: var(--rule);
+    border-radius: 0;
+    box-shadow: none;
+    min-height: 0;
+    margin: 0;
+    padding: var(--gap) 0;
+    transition: none;
+}
+
+/* Cancel the lift-on-hover and the border colour change that came with it. */
+.post-entry:hover,
+.post-entry:focus-within,
+.first-entry:hover,
+.first-entry:focus-within,
+.searchResults li:hover,
+.searchResults li:focus-within {
+    transform: none;
+    border-color: var(--border);
+}
+
+/*
+ * That lift was PaperMod's only focus indicator on these rows, so removing
+ * it left keyboard users with nothing. Restore an explicit ring.
+ */
+.post-entry:focus-within,
+.first-entry:focus-within,
+.searchResults li:focus-within {
+    outline: var(--focus-ring);
+    outline-offset: 4px;
+}
+
+/* The list is bounded by the page; a trailing rule would read as a cut-off. */
+.post-entry:last-of-type,
+.first-entry:last-of-type,
+.searchResults li:last-of-type {
+    border-bottom: none;
+}
+
+/* Rows carry their own spacing now, so drop the flex gap between them. */
+.searchResults {
+    gap: 0;
+}

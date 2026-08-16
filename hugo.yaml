@@ -1,0 +1,72 @@
+baseURL: https://sjyangkevin.github.io/blog/
+locale: en-us
+title: Kevin's Blog
+theme: PaperMod
+
+enableRobotsTXT: true
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+
+# Fallback length (in words) when a post has no `summary` in its front matter.
+# List entries show summaries in full, so keep the auto-generated one short.
+summaryLength: 30
+
+# Posts are organised by tag only. Hugo enables a `category` taxonomy by
+# default, which would generate an empty /categories/ section forever.
+taxonomies:
+  tag: tags
+
+markup:
+  highlight:
+    # PaperMod bundles its own Chroma stylesheet that follows the light/dark
+    # theme. It only takes effect when Hugo emits CSS classes; Hugo's default
+    # (noClasses: true) inlines a fixed palette and ignores the theme.
+    noClasses: false
+    codeFences: true
+    guessSyntax: true
+    lineNos: false
+
+params:
+  env: production
+  defaultTheme: auto
+  ShowReadingTime: true
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  ShowToc: true
+  assets:
+    favicon: "favicon.png"
+    favicon16x16: "favicon.png"
+    favicon32x32: "favicon.png"
+    apple_touch_icon: "favicon.png"
+  label:
+    text: "Kevin's Blog"
+    icon: "images/logo.png"
+    iconHeight: 28
+  homeInfoParams:
+    Title: "👋 Welcome"
+    Content: >
+      This is where I write notes, write-ups, and things worth remembering
+      as I learn.
+
+menu:
+  main:
+    - name: Archive
+      url: archives/
+      weight: 10
+    - name: Search
+      url: search/
+      weight: 20
+    - name: Tags
+      url: tags/
+      weight: 30
+    - name: GitHub
+      url: https://github.com/sjyangkevin
+      weight: 40
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON # required by the search page

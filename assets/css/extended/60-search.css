@@ -1,0 +1,17 @@
+/*
+ * Search input. Result rows share the post-entry surface — see 15-flat-row.css.
+ */
+
+.searchbox input {
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid var(--border);
+    border-radius: 0;
+    padding: 4px 2px;
+}
+
+/* The accent underline replaces the default ring, so focus stays visible. */
+.searchbox input:focus {
+    border-bottom-color: var(--accent);
+    outline: none;
+}

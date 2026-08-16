@@ -1,0 +1,31 @@
+/*
+ * Design tokens. Everything else in this directory reads from here, so this
+ * is the only file you need to touch to retune the look of the whole site.
+ *
+ * PaperMod defines its own palette in assets/css/core/theme-vars.css and
+ * concatenates this directory afterwards, so redefining a name here wins.
+ */
+
+:root {
+    /* Palette — light. Contrast measured against --theme. */
+    --theme: #f7faf8;
+    --entry: #f7faf8;
+    --accent: #4e6a55; /* 5.7:1 — passes WCAG AA for body text */
+
+    /* Primitives reused across components. Keep new values here rather than
+       hard-coding them, so the set stays consistent as it grows. */
+    --rule: 1px solid var(--border);
+    --focus-ring: 2px solid var(--accent);
+
+    /* Type scale for list/meta text. Post body type comes from the theme. */
+    --fs-entry-title: 22px;
+    --fs-body-sm: 14px;
+    --fs-meta: 13px;
+    --fs-tag: 12px;
+}
+
+:root[data-theme="dark"] {
+    --theme: #1b211f;
+    --entry: #242b29;
+    --accent: #9ab29e; /* 7.2:1 on the dark background */
+}

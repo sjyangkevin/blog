@@ -1,0 +1,11 @@
+/*
+ * Accent colour for interactive text. Body links keep the theme's underline
+ * (.md-content a in the theme), so colour is never the only cue.
+ */
+
+.post-content a,
+.top-link:hover,
+.footer a:hover,
+.toc a:hover {
+    color: var(--accent);
+}
