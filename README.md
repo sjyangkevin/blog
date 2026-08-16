@@ -1,10 +1,18 @@
 # Kevin's Blog
 
-Live at: <https://sjyangkevin.github.io/blog/>
+Live at: <https://sjyangkevin.github.io/>
 
 Built with [Hugo](https://gohugo.io/) and the
 [PaperMod](https://github.com/adityatelange/hugo-PaperMod) theme, deployed to
 GitHub Pages by GitHub Actions.
+
+The repository name is what puts this site at the domain root: GitHub serves
+`<user>.github.io` as the account's one *user site*. Any other repository can
+still publish its own site at `sjyangkevin.github.io/<repo>/`, so this doesn't
+foreclose future ones — but those paths are carved out of this site's URL
+space. Avoid creating a content section here that collides with the name of a
+repository you might publish (this site already claims `/posts/`, `/tags/`,
+`/archives/` and `/search/`).
 
 ## Setup
 
@@ -13,8 +21,8 @@ GitHub Pages by GitHub Actions.
 2. Clone the repo and initialize the theme submodule:
 
    ```bash
-   git clone https://github.com/sjyangkevin/blog.git
-   cd blog
+   git clone https://github.com/sjyangkevin/sjyangkevin.github.io.git
+   cd sjyangkevin.github.io
    git submodule update --init --recursive
    ```
 
