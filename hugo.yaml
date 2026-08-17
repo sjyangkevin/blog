@@ -70,3 +70,19 @@ outputs:
     - HTML
     - RSS
     - JSON # required by the search page
+
+# Publishes each post's markdown source alongside its HTML, at the same URL
+# with an index.md suffix. This is what the "Copy as Markdown" button fetches.
+# Cascaded onto /posts/ only, to keep it off pages like archives and search
+# whose source is front matter with no body.
+outputFormats:
+  markdown:
+    mediaType: text/markdown
+    isPlainText: true
+
+cascade:
+  - target:
+      path: /posts/**
+    outputs:
+      - HTML
+      - markdown

@@ -1,6 +1,6 @@
 /*
- * Flat row — the shared surface for every stacked list on the site:
- * post entries (home, section, tag pages) and search results.
+ * The shared row surface for every stacked list on the site: post entries
+ * (home, section, tag pages) and search results.
  *
  * PaperMod ships these as raised cards that lift on hover. This flattens
  * them into hairline-separated rows. Both components are styled together on
@@ -21,7 +21,7 @@
     transition: none;
 }
 
-/* Cancel the lift-on-hover and the border colour change that came with it. */
+/* Cancel the lift on hover and the border colour change that came with it. */
 .post-entry:hover,
 .post-entry:focus-within,
 .first-entry:hover,
@@ -34,16 +34,22 @@
 
 /*
  * That lift was PaperMod's only focus indicator on these rows, so removing
- * it left keyboard users with nothing. Restore an explicit ring.
+ * it left keyboard users with nothing. This ring restores one for keyboard
+ * focus alone. Focus lands on an overlay link inside the row, hence `:has()`.
  */
-.post-entry:focus-within,
-.first-entry:focus-within,
-.searchResults li:focus-within {
+.post-entry:has(:focus-visible),
+.first-entry:has(:focus-visible),
+.searchResults li:has(:focus-visible) {
     outline: var(--focus-ring);
     outline-offset: 4px;
 }
 
-/* The list is bounded by the page; a trailing rule would read as a cut-off. */
+/* PaperMod's inset ring here fires on click too; the rule above replaces it. */
+.searchResults li .entry-link:focus {
+    outline: none;
+}
+
+/* The list is bounded by the page, so a trailing rule would read as a cut-off. */
 .post-entry:last-of-type,
 .first-entry:last-of-type,
 .searchResults li:last-of-type {

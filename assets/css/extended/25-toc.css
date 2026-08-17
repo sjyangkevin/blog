@@ -1,0 +1,30 @@
+/*
+ * Table of contents. PaperMod leaves the list unstyled, so it renders with
+ * the browser's default bullets. A contents list is ordered by nature, so
+ * numbers carry more information than dots.
+ */
+
+.toc .inner ul {
+    counter-reset: toc;
+    list-style: none;
+    padding-inline-start: 0;
+}
+
+.toc .inner li {
+    position: relative;
+    counter-increment: toc;
+    padding-inline-start: 2em;
+}
+
+/*
+ * `counters()` walks every counter in scope, so a nested heading numbers
+ * itself 1.1 without needing a rule per level. The number sits in the
+ * gutter rather than inline so wrapped titles stay aligned, and it stays
+ * outside the anchor so it is not part of the click target.
+ */
+.toc .inner li::before {
+    content: counters(toc, ".") ".";
+    position: absolute;
+    inset-inline-start: 0;
+    color: var(--secondary);
+}

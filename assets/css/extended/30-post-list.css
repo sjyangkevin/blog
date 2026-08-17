@@ -18,7 +18,7 @@
     -webkit-line-clamp: unset;
 }
 
-/* One title size for every entry — PaperMod sizes the first one at 40px. */
+/* One title size for every entry. PaperMod sizes the first one at 40px. */
 .post-entry .entry-header h2,
 .first-entry .entry-header h2 {
     font-size: var(--fs-entry-title);
@@ -36,9 +36,9 @@
 }
 
 /*
- * Hover cue for the row. It has to hang off the row rather than the heading:
- * .entry-link is an absolutely positioned overlay covering the whole entry,
- * so the h2 itself never receives :hover.
+ * Hover cue for the row. It has to hang off the row rather than the heading,
+ * because .entry-link is an absolutely positioned overlay covering the whole
+ * entry, so the h2 itself never receives :hover.
  */
 .post-entry:hover .entry-header h2,
 .first-entry:hover .entry-header h2 {

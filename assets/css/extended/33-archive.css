@@ -1,0 +1,15 @@
+/*
+ * Archive entries. PaperMod gives these no hover or focus state, which left
+ * the archive as the one list on the site with no feedback at all. The
+ * whole row is covered by an invisible .entry-link, so without a cue there
+ * is nothing to suggest it can be clicked.
+ */
+
+.archive-entry:hover .archive-entry-title {
+    color: var(--accent);
+}
+
+.archive-entry:has(:focus-visible) {
+    outline: var(--focus-ring);
+    outline-offset: 2px;
+}

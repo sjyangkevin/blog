@@ -9,7 +9,7 @@ GitHub Pages by GitHub Actions.
 The repository name is what puts this site at the domain root: GitHub serves
 `<user>.github.io` as the account's one *user site*. Any other repository can
 still publish its own site at `sjyangkevin.github.io/<repo>/`, so this doesn't
-foreclose future ones — but those paths are carved out of this site's URL
+foreclose future ones, but those paths are carved out of this site's URL
 space. Avoid creating a content section here that collides with the name of a
 repository you might publish (this site already claims `/posts/`, `/tags/`,
 `/archives/` and `/search/`).
@@ -35,7 +35,7 @@ hugo new content posts/my-post-title/index.md
 That creates a page bundle from `archetypes/default.md`. Write the post, fill
 in `summary` and `tags`, then flip `draft: false` when it's ready. Keep images
 next to `index.md` inside the same folder and reference them relatively
-(`![alt](diagram.png)`) — Hugo bundles them with the post.
+(`![alt](diagram.png)`) so that Hugo bundles them with the post.
 
 `summary` is worth filling in: it's the blurb on list pages *and* the page's
 SEO meta description. Left blank, Hugo falls back to the first 30 words of the
@@ -62,23 +62,26 @@ git push
 ```
 
 Pushing to `main` triggers the GitHub Actions workflow, which builds the site
-and deploys it to GitHub Pages. The live site updates within about a minute —
-no other steps required.
+and deploys it to GitHub Pages. The live site updates within about a minute,
+with no other steps required.
 
 ## Customization
 
 Styling lives in `assets/css/extended/`. PaperMod concatenates every file in
-that directory **in filename order**, after its own stylesheets — hence the
+that directory **in filename order**, after its own stylesheets. Hence the
 numeric prefixes, which make the cascade explicit:
 
 | File | Covers |
 | --- | --- |
-| `00-tokens.css` | colours, borders, focus ring, type scale — start here |
+| `00-tokens.css` | colours, borders, focus ring, type scale (start here) |
 | `05-surfaces.css` | page and TOC backgrounds |
 | `10-links.css` | accent colour for links |
 | `15-flat-row.css` | shared row surface for post entries and search results |
 | `20-navigation.css` | header menu |
+| `25-toc.css` | table of contents on a post |
 | `30-post-list.css` | post entries on list pages |
+| `33-archive.css` | post entries on the archive page |
+| `35-copy-page.css` | "Copy as Markdown" button on a post |
 | `40-tags.css` | tag pills |
 | `50-pagination.css` | prev/next navigation |
 | `60-search.css` | search input |
@@ -96,6 +99,20 @@ diff themes/PaperMod/layouts/_partials/header.html layouts/_partials/header.html
 
 Each should show only the delta described in its header comment. Anything else
 is an upstream change you've silently reverted.
+
+`layouts/single.md` is not a fork. It renders the `markdown` output format
+declared in `hugo.yaml`, which publishes each post's source next to its HTML:
+
+```
+/posts/my-post-title/          the page
+/posts/my-post-title/index.md  the markdown behind it
+```
+
+The "Copy as Markdown" button in the post header fetches that file and puts it
+on the clipboard, which is handy for pasting a post into an LLM. Hugo also
+advertises it in the page head as `<link rel="alternate" type="text/markdown">`.
+The file holds `.RawContent`, so it is the source as written, including any
+HTML comments and unrendered shortcodes.
 
 ## Updating the theme
 

@@ -7,13 +7,13 @@
  */
 
 :root {
-    /* Palette — light. Contrast measured against --theme. */
+    /* Light palette. Contrast measured against --theme. */
     --theme: #f7faf8;
     --entry: #f7faf8;
-    --accent: #4e6a55; /* 5.7:1 — passes WCAG AA for body text */
+    --accent: #4e6a55; /* 5.7:1, passes WCAG AA for body text */
 
-    /* Primitives reused across components. Keep new values here rather than
-       hard-coding them, so the set stays consistent as it grows. */
+    /* Primitives reused across components. Add new values here rather than
+       hard-coding them at the point of use. */
     --rule: 1px solid var(--border);
     --focus-ring: 2px solid var(--accent);
 

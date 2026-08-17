@@ -1,7 +1,7 @@
 /*
- * Tag pills. One definition covers both places tags appear — under a post
- * title (.post-tags) and on the /tags/ index (.terms-tags) — which the theme
- * otherwise styles differently.
+ * Tag pills. The theme styles the two places tags appear differently, so one
+ * definition covers both: under a post title (.post-tags) and on the /tags/
+ * index (.terms-tags).
  */
 
 .post-tags,

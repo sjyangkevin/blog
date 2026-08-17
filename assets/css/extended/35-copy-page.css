@@ -1,0 +1,66 @@
+/*
+ * "Copy as Markdown" control, sitting at the right of the post meta line.
+ * The row keeps the button on the baseline the reader is already scanning,
+ * and wraps to its own line when the meta text runs out of room.
+ */
+
+.post-header-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+}
+
+/*
+ * Split into a label and an icon so it reads as a control rather than a tag
+ * pill. Tags are filled on hover; this one only takes the accent on its
+ * edges, which keeps the two vocabularies apart.
+ */
+.copy-page {
+    display: inline-flex;
+    align-items: stretch;
+    margin-inline-start: auto;
+    font: inherit;
+    font-size: var(--fs-meta);
+    line-height: 1;
+    color: var(--secondary);
+    background: transparent;
+    border: var(--rule);
+    border-radius: 6px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.copy-page:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+.copy-page:focus-visible {
+    outline: var(--focus-ring);
+    outline-offset: 2px;
+}
+
+/* Held wide enough for "Copied" so the button does not resize on click. */
+.copy-page-label {
+    padding: 6px 10px;
+    min-width: 6ch;
+    text-align: center;
+}
+
+.copy-page-icon {
+    display: flex;
+    align-items: center;
+    padding: 6px 8px;
+    border-inline-start: var(--rule);
+}
+
+.copy-page:hover .copy-page-icon {
+    border-inline-start-color: var(--accent);
+}
+
+.copy-page-icon svg {
+    width: 14px;
+    height: 14px;
+}

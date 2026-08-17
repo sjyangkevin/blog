@@ -1,5 +1,6 @@
 /*
- * Search input. Result rows share the post-entry surface — see 15-flat-row.css.
+ * Search input. Result rows share the post-entry surface, defined in
+ * 15-flat-row.css.
  */
 
 .searchbox input {
@@ -14,4 +15,13 @@
 .searchbox input:focus {
     border-bottom-color: var(--accent);
     outline: none;
+}
+
+/*
+ * Hover cue for a result. fastsearch.js appends the title as a bare text
+ * node, so there is no element to colour and the accent goes on the row.
+ * The chevron is drawn with currentColor and follows along.
+ */
+.searchResults li:hover {
+    color: var(--accent);
 }
